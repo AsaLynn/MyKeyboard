@@ -43,7 +43,7 @@
             />
     </LinearLayout>
 
-    <com.jay.easykeyboard.SystemKeyboard
+    <com.zxn.keyboard.SystemKeyboard
         android:id="@+id/systemkeyboard"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

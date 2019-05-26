@@ -4,7 +4,7 @@
     android:id="@+id/activity_main"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
-    <com.jay.easykeyboard.SystemKeyBoardEditText
+    <com.zxn.keyboard.SystemKeyBoardEditText
         android:layout_width="match_parent"
         android:layout_height="50dp"
         keyboard:xmlLayoutResId="@xml/keyboard_numbers"
@@ -14,7 +14,7 @@
         android:layout_margin="10dp"
         android:background="@drawable/btn_keyboard_key"
         />
-    <com.jay.easykeyboard.SystemKeyBoardEditText
+    <com.zxn.keyboard.SystemKeyBoardEditText
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_margin="10dp"

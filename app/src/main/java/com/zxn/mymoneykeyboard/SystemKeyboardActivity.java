@@ -12,10 +12,10 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.jay.easykeyboard.SystemKeyboard;
-import com.jay.easykeyboard.action.IKeyBoardUI;
-import com.jay.easykeyboard.action.KeyBoardActionListence;
-import com.jay.easykeyboard.util.Util;
+import com.zxn.keyboard.SystemKeyboard;
+import com.zxn.keyboard.action.IKeyBoardUI;
+import com.zxn.keyboard.action.KeyBoardActionListence;
+import com.zxn.keyboard.util.Util;
 
 /**
  * Created by huangjie on 2018/2/6.

@@ -4,7 +4,7 @@
     android:layout_height="wrap_content"
     android:orientation="vertical"
     xmlns:custom="http://schemas.android.com/apk/res-auto">
-   <com.jay.easykeyboard.SystemKeyBoardEditText
+   <com.zxn.keyboard.SystemKeyBoardEditText
        android:layout_width="match_parent"
        android:layout_height="50dp"
        android:hint="这是一个item"

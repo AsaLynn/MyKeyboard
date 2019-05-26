@@ -5,8 +5,8 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.text.Editable;
 
-import com.jay.easykeyboard.SystemKeyBoardEditText;
-import com.jay.easykeyboard.action.KeyBoardActionListence;
+import com.zxn.keyboard.SystemKeyBoardEditText;
+import com.zxn.keyboard.action.KeyBoardActionListence;
 
 /**
  * Created by huangjie on 2018/2/6.
