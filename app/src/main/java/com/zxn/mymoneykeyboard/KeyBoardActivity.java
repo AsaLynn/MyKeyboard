@@ -9,20 +9,16 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.zxn.keyboard.KeyboardUtil;
 import com.zxn.keyboard.CustomKeyboardView;
+import com.zxn.keyboard.KeyboardUtils;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 
-public class KeyBoard3Activity extends AppCompatActivity {
+public class KeyBoardActivity extends AppCompatActivity {
 
-    @BindView(R.id.btn_showKey)
-    Button btnShowKey;
-    @BindView(R.id.btn_hideKey)
-    Button btnHideKey;
     @BindView(R.id.btn_price)
     Button btnPrice;
     @BindView(R.id.btn_number)
@@ -32,7 +28,7 @@ public class KeyBoard3Activity extends AppCompatActivity {
     @BindView(R.id.keyboard_view)
     CustomKeyboardView myKeyboardView;
     private int change_type;
-    private KeyboardUtil keyboardUtil;
+    private KeyboardUtils keyboardUtil;
 
 
     @Override
@@ -45,33 +41,20 @@ public class KeyBoard3Activity extends AppCompatActivity {
     }
 
 
-
-
     private void initKeyboard() {
-        keyboardUtil = new KeyboardUtil(this, etAmount, myKeyboardView);
-        keyboardUtil.setType(KeyboardUtil.TYPE_PRICE);
-        keyboardUtil.setKeyboardListener(new KeyboardUtil.KeyboardListener() {
+        keyboardUtil = new KeyboardUtils(this, etAmount, myKeyboardView);
+        keyboardUtil.setKeyboardListener(new KeyboardUtils.KeyboardListener() {
 
             @Override
             public void onOK() {
                 String result = etAmount.getText().toString();
                 String msg = "";
                 if (!TextUtils.isEmpty(result)) {
-                    switch (change_type) {
-                        case KeyboardUtil.TYPE_NUMBER:
-                            msg += "num:" + result;
-                            break;
-                        case KeyboardUtil.TYPE_PRICE:
-                            msg += "price:" + result;
-                            break;
-                        default:
-                            msg += "input:" + result;
-                            break;
-                    }
-                    Toast.makeText(KeyBoard3Activity.this, msg, Toast.LENGTH_SHORT).show();
+                    msg += "price:" + result;
+                    Toast.makeText(KeyBoardActivity.this, msg, Toast.LENGTH_SHORT).show();
                 }
-                hideKeyBoard();
-                change_type = -1;
+                //hideKeyBoard();
+                //change_type = -1;
             }
         });
     }
@@ -81,19 +64,19 @@ public class KeyBoard3Activity extends AppCompatActivity {
      */
     protected void showKeyBoard() {
         etAmount.setText("");
-        switch (change_type) {
-            case KeyboardUtil.TYPE_NUMBER:
-                etAmount.setHint("请输入数量");
-                break;
-
-            case KeyboardUtil.TYPE_PRICE:
-                etAmount.setHint("请输入价格");
-                break;
-
-            default:
-                break;
-        }
-        keyboardUtil.setType(change_type);
+//        switch (change_type) {
+//            case KeyboardUtils.TYPE_NUMBER:
+//                etAmount.setHint("请输入数量");
+//                break;
+//
+//            case KeyboardUtils.TYPE_PRICE:
+//                etAmount.setHint("请输入价格");
+//                break;
+//
+//            default:
+//                break;
+//        }
+//        keyboardUtil.setmType(change_type);
         keyboardUtil.showKeyboard();
         showKeyboardWithAnimation();
     }
@@ -112,28 +95,33 @@ public class KeyBoard3Activity extends AppCompatActivity {
      */
     protected void hideKeyBoard() {
         keyboardUtil.hideKeyboard();
-        keyboardUtil.setType(-1);
+        //keyboardUtil.setmType(-1);
     }
 
+    //R.id.btn_showKey, R.id.btn_hideKey,
 
-    @OnClick({R.id.btn_showKey, R.id.btn_hideKey, R.id.btn_price, R.id.btn_number})
+    @OnClick({ R.id.btn_price, R.id.btn_number, R.id.btn_money})
     public void onViewClicked(View view) {
         switch (view.getId()) {
-            case R.id.btn_showKey:
-                showKeyBoard();
-                break;
-            case R.id.btn_hideKey:
-                hideKeyBoard();
-                break;
+//            case R.id.btn_showKey:
+//                showKeyBoard();
+//                break;
+//            case R.id.btn_hideKey:
+//                hideKeyBoard();
+//                break;
             case R.id.btn_price:
-                change_type = KeyboardUtil.TYPE_PRICE;
+//                change_type = KeyboardUtils.TYPE_PRICE;
                 showKeyBoard();
                 break;
             case R.id.btn_number:
-                change_type = KeyboardUtil.TYPE_NUMBER;
+//                change_type = KeyboardUtils.TYPE_NUMBER;
                 showKeyBoard();
                 break;
         }
+    }
+
+    @OnClick(R.id.btn_money)
+    public void onViewClicked() {
     }
 }
 

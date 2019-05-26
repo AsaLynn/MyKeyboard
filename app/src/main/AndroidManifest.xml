@@ -17,7 +17,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".KeyBoard3Activity" />
+        <activity android:name=".KeyBoardActivity" />
+        <activity android:name=".DIYKeyboardActivity" />
+
     </application>
 
 </manifest>

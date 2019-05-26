@@ -21,10 +21,12 @@ public class MainActivity extends AppCompatActivity {
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.btn1:
-                startActivity(new Intent(this, KeyBoard3Activity.class));
+                startActivity(new Intent(this, KeyBoardActivity.class));
                 break;
             case R.id.btn2:
-                MoneyKeyboardActivity.jumpTo(this);
+                //MoneyKeyboardActivity.jumpTo(this);
+
+                DIYKeyboardActivity.jumpTo(this);
                 break;
         }
     }
