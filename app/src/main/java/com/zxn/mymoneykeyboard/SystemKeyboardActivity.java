@@ -27,7 +27,7 @@ public class SystemKeyboardActivity extends AppCompatActivity implements View.On
 
     private static final String TAG = "SystemKeyboardActivity";
     private SystemKeyboard mKeyboard;
-    private boolean isRandom =false;
+    private boolean isRandom = false;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -40,13 +40,18 @@ public class SystemKeyboardActivity extends AppCompatActivity implements View.On
         mKeyboard.setEditText(edit1); //用于绑定EditText,如果切换了EditText，请务必设置此方法
         mKeyboard.setOnKeyboardActionListener(new KeyBoardActionListence() {
             @Override
+            public void onCustomKeyClick() {
+                showShortToast("银行卡");
+            }
+
+            @Override
             public void onComplete() {
                 showShortToast("完成");
             }
 
             @Override
             public void onTextChange(Editable editable) {
-                Log.i(TAG,"onTextChange:"+editable.toString());
+                Log.i(TAG, "onTextChange:" + editable.toString());
             }
 
             @Override
@@ -54,10 +59,10 @@ public class SystemKeyboardActivity extends AppCompatActivity implements View.On
                 showShortToast("onClear");
             }
 
-            @Override
-            public void onClearAll() {
-                showShortToast("onClearAll");
-            }
+//            @Override
+//            public void onClearAll() {
+//                showShortToast("onClearAll");
+//            }
         });
 
         edit1.setOnFocusChangeListener(this);
@@ -71,7 +76,7 @@ public class SystemKeyboardActivity extends AppCompatActivity implements View.On
                     @Override
                     public Paint setPaint(Paint paint) {
                         paint.setColor(Color.BLUE);
-                        paint.setTextSize(Util.dpToPx(getApplicationContext(),16));
+                        paint.setTextSize(Util.dpToPx(getApplicationContext(), 16));
                         return paint;
                     }
                 });
@@ -94,12 +99,12 @@ public class SystemKeyboardActivity extends AppCompatActivity implements View.On
     @Override
     public void onFocusChange(View v, boolean hasFocus) {
         if (hasFocus) {
-            switch (v.getId()){
+            switch (v.getId()) {
                 case R.id.edit: //绑定EditText并显示自定义键盘
                     mKeyboard.setEditText((EditText) v);
                     break;
                 case R.id.edit2: //绑定EditText并显示原生键盘
-                    mKeyboard.setEditText((EditText) v,true);
+                    mKeyboard.setEditText((EditText) v, true);
                     break;
             }
         }

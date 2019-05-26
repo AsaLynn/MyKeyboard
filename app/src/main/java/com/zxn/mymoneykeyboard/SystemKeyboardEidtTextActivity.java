@@ -13,7 +13,7 @@ import com.zxn.keyboard.action.KeyBoardActionListence;
  * 类名：
  * 说明：附带EditText的popwindow形式弹出的键盘
  */
-
+@Deprecated
 public class SystemKeyboardEidtTextActivity extends AppCompatActivity implements KeyBoardActionListence {
 
     @Override
@@ -24,6 +24,11 @@ public class SystemKeyboardEidtTextActivity extends AppCompatActivity implements
         SystemKeyBoardEditText skb_bottom = findViewById(R.id.skb_bottom);
         skb_top.setOnKeyboardActionListener(this);
         skb_bottom.setOnKeyboardActionListener(this);
+    }
+
+    @Override
+    public void onCustomKeyClick() {
+
     }
 
     @Override
@@ -41,8 +46,8 @@ public class SystemKeyboardEidtTextActivity extends AppCompatActivity implements
 
     }
 
-    @Override
-    public void onClearAll() {
-
-    }
+//    @Override
+//    public void onClearAll() {
+//
+//    }
 }

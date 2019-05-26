@@ -7,11 +7,15 @@ import android.text.Editable;
  * 说明：键盘输入监听
  */
 public interface KeyBoardActionListence {
-    void onComplete(); //完成点击
+
+    void onCustomKeyClick(); //自定义特殊按键,银行卡按键.
+
+    void onComplete(); //完成点击,收款按钮点击.
 
     void onTextChange(Editable editable); //文本改变
 
     void onClear(); //正在删除
 
-    void onClearAll(); //全部清除
+//    @Deprecated
+//    void onClearAll(); //全部清除
 }
