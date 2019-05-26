@@ -13,9 +13,7 @@ import android.widget.EditText;
 import java.util.List;
 
 /**
- * @Author: ys尘笑
- * @date 2015-12-6 下午5:21:36
- * @Description: 键盘功能控制工具类
+ * 键盘功能控制工具类
  */
 public class KeyboardUtil {
     private Context ctx;
@@ -36,11 +34,6 @@ public class KeyboardUtil {
         void onOK();
     }
 
-    /**
-     * @param ctx
-     * @param parent 包含MyKeyboardView的ViewGroup
-     * @param edit
-     */
     public KeyboardUtil(Context ctx, View parent, EditText edit) {
         this.ctx = ctx;
         this.ed = edit;
@@ -75,7 +68,7 @@ public class KeyboardUtil {
 
     /**
      * @param ctx  必须要用Activity实例作为上下文传入
-     * @param edit
+     * @param edit EditText
      */
     public KeyboardUtil(Context ctx, EditText edit) {
         this.ctx = ctx;

@@ -24,6 +24,7 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(new Intent(this, KeyBoard3Activity.class));
                 break;
             case R.id.btn2:
+                MoneyKeyboardActivity.jumpTo(this);
                 break;
         }
     }
