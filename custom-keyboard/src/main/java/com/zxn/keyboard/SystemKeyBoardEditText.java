@@ -10,7 +10,7 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.widget.EditText;
 
-import com.zxn.keyboard.action.KeyBoardActionListence;
+import com.zxn.keyboard.action.KeyBoardActionListener;
 import com.zxn.keyboard.action.OnEditFocusChangeListence;
 import com.zxn.keyboard.widget.KeyBoardEditText;
 import com.zxn.keyboard.util.Util;
@@ -163,7 +163,7 @@ public class SystemKeyBoardEditText extends KeyBoardEditText {
      *
      * @param listener listence
      */
-    public void setOnKeyboardActionListener(KeyBoardActionListence listener) {
+    public void setOnKeyboardActionListener(KeyBoardActionListener listener) {
         this.listener.setKeyActionListence(listener);
     }
 

@@ -6,9 +6,11 @@ import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.graphics.Rect;
 import android.graphics.drawable.Drawable;
+import android.inputmethodservice.Keyboard;
 import android.inputmethodservice.Keyboard.Key;
 import android.inputmethodservice.KeyboardView;
 import android.util.AttributeSet;
+import android.util.Log;
 
 import java.util.List;
 
@@ -16,8 +18,10 @@ import java.util.List;
 public class MyKeyboardView extends KeyboardView {
 
     private Drawable mKeybgDrawable;
+    private Drawable mKeyDoneBgDrawable;
     private Rect rect;
     private Paint paint;
+    private String TAG = "MyKeyboardView";
 
     public MyKeyboardView(Context context, AttributeSet attrs) {
         super(context, attrs);
@@ -39,18 +43,23 @@ public class MyKeyboardView extends KeyboardView {
         paint.setColor(res.getColor(android.R.color.black));
     }
 
-    public void setKeybgDrawable(Drawable mKeybgDrawable){
+    public void setKeybgDrawable(Drawable mKeybgDrawable) {
         this.mKeybgDrawable = mKeybgDrawable;
         invalidate();
     }
 
-    public Paint getPaint(){
+    public void setDoneBgDrawable(Drawable drawable) {//keyDoneBgDrawable
+        this.mKeyDoneBgDrawable = drawable;
+        invalidate();
+    }
+
+    public Paint getPaint() {
         return paint;
     }
 
-    public void setPaint(Paint paint){
+    public void setPaint(Paint paint) {
         this.paint = paint;
-        if (paint==null){
+        if (paint == null) {
             throw new NullPointerException("Paint is not null");
         }
         invalidate();
@@ -66,19 +75,37 @@ public class MyKeyboardView extends KeyboardView {
                 offsety = 1;
             }
             int initdrawy = key.y + offsety;
-            if (mKeybgDrawable!=null) {
-                rect.left = key.x;
-                rect.top = initdrawy;
-                rect.right = key.x + key.width;
-                rect.bottom = key.y + key.height;
-                canvas.clipRect(rect);
-                int[] state = key.getCurrentDrawableState();
-                //设置按压效果
-                mKeybgDrawable.setState(state);
-                //设置边距
-                mKeybgDrawable.setBounds(rect);
-                mKeybgDrawable.draw(canvas);
+
+            if (key.codes.length > 0 && key.codes[0] == Keyboard.KEYCODE_DONE) {
+                if (mKeyDoneBgDrawable != null) {
+                    rect.left = key.x;
+                    rect.top = initdrawy;
+                    rect.right = key.x + key.width;
+                    rect.bottom = key.y + key.height;
+                    canvas.clipRect(rect);
+                    int[] state = key.getCurrentDrawableState();
+                    //设置按压效果
+                    mKeyDoneBgDrawable.setState(state);
+                    //设置边距
+                    mKeyDoneBgDrawable.setBounds(rect);
+                    mKeyDoneBgDrawable.draw(canvas);
+                }
+            } else {
+                if (mKeybgDrawable != null) {
+                    rect.left = key.x;
+                    rect.top = initdrawy;
+                    rect.right = key.x + key.width;
+                    rect.bottom = key.y + key.height;
+                    canvas.clipRect(rect);
+                    int[] state = key.getCurrentDrawableState();
+                    //设置按压效果
+                    mKeybgDrawable.setState(state);
+                    //设置边距
+                    mKeybgDrawable.setBounds(rect);
+                    mKeybgDrawable.draw(canvas);
+                }
             }
+
             if (key.label != null) {
                 canvas.drawText(
                         key.label.toString(),
@@ -97,6 +124,10 @@ public class MyKeyboardView extends KeyboardView {
                         drawableY + intriHeight);
 
                 key.icon.draw(canvas);
+
+                for (int i = 0; i < key.codes.length; i++) {
+                    Log.i(TAG, "onDraw: codes" + i + ":" + key.codes[i]);
+                }
             }
 
             canvas.restore();

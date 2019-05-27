@@ -6,7 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.text.Editable;
 
 import com.zxn.keyboard.SystemKeyBoardEditText;
-import com.zxn.keyboard.action.KeyBoardActionListence;
+import com.zxn.keyboard.action.KeyBoardActionListener;
 
 /**
  * Created by huangjie on 2018/2/6.
@@ -14,7 +14,7 @@ import com.zxn.keyboard.action.KeyBoardActionListence;
  * 说明：附带EditText的popwindow形式弹出的键盘
  */
 @Deprecated
-public class SystemKeyboardEidtTextActivity extends AppCompatActivity implements KeyBoardActionListence {
+public class SystemKeyboardEidtTextActivity extends AppCompatActivity implements KeyBoardActionListener {
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -24,6 +24,11 @@ public class SystemKeyboardEidtTextActivity extends AppCompatActivity implements
         SystemKeyBoardEditText skb_bottom = findViewById(R.id.skb_bottom);
         skb_top.setOnKeyboardActionListener(this);
         skb_bottom.setOnKeyboardActionListener(this);
+    }
+
+    @Override
+    public void onArithmetic(String result) {
+
     }
 
     @Override

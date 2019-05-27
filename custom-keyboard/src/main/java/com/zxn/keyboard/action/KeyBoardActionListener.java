@@ -3,10 +3,17 @@ package com.zxn.keyboard.action;
 import android.text.Editable;
 
 /**
- * Created by hj on 2018/12/17.
+ * Listener
  * 说明：键盘输入监听
  */
-public interface KeyBoardActionListence {
+public interface KeyBoardActionListener {
+
+    /**
+     * 计算监听.Result
+     *
+     * @param result 计算结果
+     */
+    void onArithmetic(String result);
 
     void onCustomKeyClick(); //自定义特殊按键,银行卡按键.
 

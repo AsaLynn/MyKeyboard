@@ -2,45 +2,53 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:keyboard="http://schemas.android.com/apk/res-auto"
     android:id="@+id/activity_main"
-    android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        >
-        <EditText
-            android:layout_width="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tv_num"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:text="0"
+            android:textColor="@color/red" />
+
+        <EditText
             android:id="@+id/edit"
-            android:hint="点击开始输入"
-            />
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="点击开始输入" />
+
         <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="点我弹出原生键盘"
             android:id="@+id/edit2"
-            />
-        <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:hint="点我弹出原生键盘" />
+
+        <Button
             android:id="@+id/btn_setkeyui"
-            android:text="设置键盘UI"
-            android:background="#399cff"
-            android:textColor="@color/white"
-            android:textSize="16sp"
-            />
-        <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="随机键盘"
-            android:id="@+id/btn_random"
             android:background="#399cff"
+            android:text="设置键盘UI"
             android:textColor="@color/white"
-            android:textSize="16sp"
+            android:textSize="16sp" />
+
+        <Button
+            android:id="@+id/btn_random"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            />
+            android:background="#399cff"
+            android:text="随机键盘"
+            android:textColor="@color/white"
+            android:textSize="16sp" />
     </LinearLayout>
 
     <com.zxn.keyboard.SystemKeyboard
@@ -48,7 +56,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
+        keyboard:keyDoneBg="@drawable/bg_sc_key_done"
         keyboard:keyViewbg="@drawable/btn_keyboard_key"
-        keyboard:xmlLayoutResId="@xml/keyboard_numbers"
-        />
+        keyboard:xmlLayoutResId="@xml/keyboard_wx_numbers" />
 </RelativeLayout>

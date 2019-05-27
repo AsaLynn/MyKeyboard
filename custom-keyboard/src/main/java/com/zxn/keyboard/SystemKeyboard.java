@@ -13,7 +13,7 @@ import android.widget.EditText;
 import android.widget.FrameLayout;
 
 import com.zxn.keyboard.action.IKeyBoardUI;
-import com.zxn.keyboard.action.KeyBoardActionListence;
+import com.zxn.keyboard.action.KeyBoardActionListener;
 import com.zxn.keyboard.bean.KeyModel;
 import com.zxn.keyboard.impl.SystemOnKeyboardActionListener;
 import com.zxn.keyboard.keyboard.MyKeyboardView;
@@ -35,6 +35,7 @@ public class SystemKeyboard extends FrameLayout {
     private static final String TAG = "SystemKeyboard";
     private MyKeyboardView keyboardView;
     private Drawable keybgDrawable;
+    private Drawable keyDoneBgDrawable;
     private Keyboard mKeyboard;
     private SystemOnKeyboardActionListener actionListener;
     private int xmlLayoutResId;
@@ -57,6 +58,11 @@ public class SystemKeyboard extends FrameLayout {
         if (a.hasValue(R.styleable.SystemKeyboard_keyViewbg)) {
             keybgDrawable = a.getDrawable(R.styleable.SystemKeyboard_keyViewbg);
         }
+
+        if (a.hasValue(R.styleable.SystemKeyboard_keyDoneBg)) {
+            keyDoneBgDrawable = a.getDrawable(R.styleable.SystemKeyboard_keyDoneBg);        //keyDoneBgDrawable
+        }
+
         if (a.hasValue(R.styleable.SystemKeyboard_xmlLayoutResId)) {
             xmlLayoutResId = a.getResourceId(R.styleable.SystemKeyboard_xmlLayoutResId, 0);
             initKeyBoard(context, xmlLayoutResId);
@@ -78,6 +84,9 @@ public class SystemKeyboard extends FrameLayout {
         keyboardView.setPreviewEnabled(false);
         if (null != keybgDrawable) {
             keyboardView.setKeybgDrawable(keybgDrawable);
+        }
+        if (null != keyDoneBgDrawable) {
+            keyboardView.setDoneBgDrawable(keyDoneBgDrawable);
         }
         actionListener = new SystemOnKeyboardActionListener();
         keyboardView.setOnKeyboardActionListener(actionListener);
@@ -196,7 +205,7 @@ public class SystemKeyboard extends FrameLayout {
      * 设置键盘输入监听
      * @param listener l
      */
-    public void setOnKeyboardActionListener(KeyBoardActionListence listener) {
+    public void setOnKeyboardActionListener(KeyBoardActionListener listener) {
         actionListener.setKeyActionListence(listener);
     }
 

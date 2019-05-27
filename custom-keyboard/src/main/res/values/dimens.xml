@@ -9,5 +9,5 @@
     <dimen name="keyboard_horizontalGap">1px</dimen>
     <dimen name="keyboard_verticalGap">1px</dimen>
     <dimen name="key_height_double">180dp</dimen>
-    <dimen name="key_height_thrice">180dp</dimen>  <!--大小是key_height的两倍-->
+    <dimen name="key_height_thrice">270dp</dimen>  <!--大小是key_height的两倍-->
 </resources>

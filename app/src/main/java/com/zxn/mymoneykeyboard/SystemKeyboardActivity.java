@@ -14,7 +14,7 @@ import android.widget.Toast;
 
 import com.zxn.keyboard.SystemKeyboard;
 import com.zxn.keyboard.action.IKeyBoardUI;
-import com.zxn.keyboard.action.KeyBoardActionListence;
+import com.zxn.keyboard.action.KeyBoardActionListener;
 import com.zxn.keyboard.util.Util;
 
 /**
@@ -38,7 +38,12 @@ public class SystemKeyboardActivity extends AppCompatActivity implements View.On
         EditText edit1 = findViewById(R.id.edit);
         EditText edit2 = findViewById(R.id.edit2);
         mKeyboard.setEditText(edit1); //用于绑定EditText,如果切换了EditText，请务必设置此方法
-        mKeyboard.setOnKeyboardActionListener(new KeyBoardActionListence() {
+        mKeyboard.setOnKeyboardActionListener(new KeyBoardActionListener() {
+            @Override
+            public void onArithmetic(String result) {
+
+            }
+
             @Override
             public void onCustomKeyClick() {
                 showShortToast("银行卡");
