@@ -1,8 +1,8 @@
 package com.zxn.keyboard.util;
 
-import android.app.Activity;
 import android.content.Context;
 import android.os.Build;
+import android.support.v7.app.AppCompatActivity;
 import android.util.DisplayMetrics;
 import android.view.Display;
 import android.view.View;
@@ -80,7 +80,7 @@ public class Util {
      * 隐藏软键盘
      */
     public static void hideKeyboard(Context context) {
-        View view = ((Activity) context).getWindow().peekDecorView();
+        View view = ((AppCompatActivity) context).getWindow().peekDecorView();
         if (view != null) {
             InputMethodManager imm = (InputMethodManager) context.getSystemService(Context.INPUT_METHOD_SERVICE);
             if (imm != null) {

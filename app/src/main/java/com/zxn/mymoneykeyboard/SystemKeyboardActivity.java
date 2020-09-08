@@ -22,7 +22,6 @@ import com.zxn.keyboard.util.Util;
  * 类名：
  * 说明：此Activity实现了键盘固定的情况下的使用
  */
-
 public class SystemKeyboardActivity extends AppCompatActivity implements View.OnFocusChangeListener {
 
     private static final String TAG = "SystemKeyboardActivity";
@@ -64,10 +63,6 @@ public class SystemKeyboardActivity extends AppCompatActivity implements View.On
                 showShortToast("onClear");
             }
 
-//            @Override
-//            public void onClearAll() {
-//                showShortToast("onClearAll");
-//            }
         });
 
         edit1.setOnFocusChangeListener(this);

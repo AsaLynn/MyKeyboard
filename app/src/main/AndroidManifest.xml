@@ -17,8 +17,19 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".SystemKeyboardActivity"></activity>
-        <activity android:name=".SystemKeyboardEidtTextActivity"></activity>
+        <activity android:name=".SystemKeyboardActivity" />
+        <activity android:name=".SystemKeyboardEidtTextActivity" />
+
+        <activity android:name="com.lnyp.pswkeyboard.MainActivity">
+            <!--<intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>-->
+        </activity>
+        <activity android:name=".NormalKeyBoardActivity" />
+        <activity android:name=".PaymentKeyBoardActivity" />
+
     </application>
 
 </manifest>

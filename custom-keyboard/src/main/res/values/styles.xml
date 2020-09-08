@@ -3,4 +3,9 @@
     <item name="android:windowEnterAnimation">@anim/dialog_enter</item>
     <item name="android:windowExitAnimation">@anim/dialog_exit</item>
 </style>
+
+    <style name="pop_add_ainm" parent="android:Animation">
+        <item name="android:windowEnterAnimation">@anim/push_bottom_in</item>
+        <item name="android:windowExitAnimation">@anim/push_bottom_out</item>
+    </style>
 </resources>

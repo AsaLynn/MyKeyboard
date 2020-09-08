@@ -11,8 +11,8 @@ public class MainActivity extends ListActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        String type[] = new String[] {"SystemKeyboard","SystemKeyBoardEditText"};
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, type);
+        String type[] = new String[] {"SystemKeyboard","SystemKeyBoardEditText","仿微信键盘","仿微信支付键盘"};
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, type);
         setListAdapter(adapter);
     }
 
@@ -25,6 +25,12 @@ public class MainActivity extends ListActivity {
                 break;
             case 1:
                 startActivity(SystemKeyboardEidtTextActivity.class);
+                break;
+            case 2:
+                startActivity(NormalKeyBoardActivity.class);
+                break;
+            case 3:
+                startActivity(PaymentKeyBoardActivity.class);
                 break;
         }
     }

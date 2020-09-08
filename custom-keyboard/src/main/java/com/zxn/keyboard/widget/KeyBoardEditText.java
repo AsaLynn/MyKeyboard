@@ -1,8 +1,8 @@
 package com.zxn.keyboard.widget;
 
-import android.app.Activity;
 import android.content.Context;
 import android.graphics.Rect;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.AppCompatEditText;
 import android.util.AttributeSet;
 import android.view.ActionMode;
@@ -24,7 +24,7 @@ import com.zxn.keyboard.util.Util;
  * 类名：能弹出自定义键盘的EditText抽象类
  */
 public abstract class KeyBoardEditText extends AppCompatEditText {
-    private Activity activity;
+    private AppCompatActivity activity;
     private int realHeight; //界面实际高度
     private PopupWindow mKeyboardWindow;
     private View mDecorView;
@@ -46,7 +46,7 @@ public abstract class KeyBoardEditText extends AppCompatEditText {
     }
 
     private void init(Context context) {
-        if (context instanceof Activity) activity = (Activity) context;
+        if (context instanceof AppCompatActivity) activity = (AppCompatActivity) context;
         realHeight = Util.getContentHeight(context);
         this.setImeOptions(EditorInfo.IME_FLAG_NO_EXTRACT_UI);
         if (this.getText() != null) {
