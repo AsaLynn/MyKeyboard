@@ -127,10 +127,12 @@ public class Util {
         return screenh_nonavbar - getStatusBarHeight(context);
     }
 
+
     /**
      * 电量栏高度
      *
-     * @return
+     * @param context Context
+     * @return int
      */
     public static int getStatusBarHeight(Context context) {
         Class<?> c = null;
